@@ -6,48 +6,41 @@
 <title>Cooking with Nur</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-         background: #faf8f5; color: #1a1a1a; min-height: 100vh; }
-  header { padding: 16px 16px 0; border-bottom: 1px solid #eee; background: #fff;
-           position: sticky; top: 0; z-index: 10; }
-  h1 { font-size: 1.25rem; font-weight: 800; }
-  .subtitle { font-size: 11px; color: #aaa; margin-top: 2px; margin-bottom: 10px; }
-  .filters { display: flex; gap: 6px; overflow-x: auto; padding: 10px 0;
+  body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+         background: #f5f3f0; color: #1a1a1a; }
+
+  header { position: sticky; top: 0; z-index: 10;
+           background: #fff; border-bottom: 1px solid #e8e5e1;
+           padding: 12px 16px 0; }
+  h1 { font-size: 1.15rem; font-weight: 800; }
+  .subtitle { font-size: 11px; color: #aaa; margin-top: 1px; padding-bottom: 10px; }
+  .filters { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px;
              -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .filters::-webkit-scrollbar { display: none; }
-  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px;
-          border-radius: 20px; border: 1.5px solid #ddd; background: #fff;
-          font-size: 12px; font-weight: 600; color: #555; cursor: pointer;
-          white-space: nowrap; flex-shrink: 0; user-select: none;
-          -webkit-tap-highlight-color: transparent; transition: border-color .1s, background .1s, color .1s; }
+  .chip { flex-shrink: 0; display: inline-flex; align-items: center; gap: 4px;
+          padding: 5px 11px; border-radius: 20px; border: 1.5px solid #ddd;
+          background: #fff; font-size: 12px; font-weight: 600; color: #555;
+          cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+          transition: border-color .12s, background .12s, color .12s; }
   .chip.on { border-color: #111; background: #111; color: #fff; }
-  .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  main { padding-bottom: 48px; }
-  .count-bar { padding: 8px 16px 2px; font-size: 11px; color: #bbb; }
-  .cat-header { padding: 14px 16px 6px; font-size: 10px; font-weight: 700;
-                text-transform: uppercase; letter-spacing: .09em; color: #aaa; }
-  .grid { display: grid; gap: 10px; padding: 0 16px 10px;
-          grid-template-columns: repeat(2, 1fr); }
-  @media (min-width: 480px)  { .grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (min-width: 768px)  { .grid { grid-template-columns: repeat(4, 1fr); } }
-  @media (min-width: 1024px) { .grid { grid-template-columns: repeat(5, 1fr); } }
-  .card { background: #fff; border-radius: 10px; overflow: hidden;
-          box-shadow: 0 1px 4px rgba(0,0,0,.07); }
-  .imgs { display: grid; gap: 1px; background: #eee; }
-  .imgs.n1 { grid-template-columns: 1fr; }
-  .imgs.n2, .imgs.n3, .imgs.n4 { grid-template-columns: repeat(2, 1fr); }
-  .imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-  .card-body { padding: 8px 10px 10px; }
-  .card-name { font-size: 12px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
-  .card-meta { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-  .prio-badge { font-size: 9px; font-weight: 800; color: #fff;
-                padding: 2px 5px; border-radius: 3px; flex-shrink: 0; }
-  .cat-tag { font-size: 10px; color: #aaa; }
+  .chip-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  main { padding-bottom: 60px; }
+  .count-bar { padding: 8px 16px 4px; font-size: 11px; color: #bbb; }
+
+  .recipe { background: #fff; margin-bottom: 2px; }
+  .recipe-header { padding: 10px 14px 8px; display: flex; align-items: center; gap: 8px; }
+  .recipe-name { font-size: 13px; font-weight: 700; flex: 1; }
+  .prio { font-size: 9px; font-weight: 800; color: #fff;
+          padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .cat  { font-size: 10px; color: #aaa; flex-shrink: 0; }
+  .recipe img { width: 100%; display: block; }
+
   .empty { padding: 60px 20px; text-align: center; color: #bbb; font-size: 14px; }
 </style>
 </head>
 <body>
-<script id="recipe-data" type="application/json">[{"name":"Aloo Bhorta","category":"Bhortas","priority":"P1","images":["images/Aloo Bhorta-0.png","images/Aloo Bhorta-1.png"]},{"name":"Chingri Maacher Bhorta","category":"Bhortas","priority":"P1","images":["images/Chingri Maacher Bhorta-0.png","images/Chingri Maacher Bhorta-1.png","images/Chingri Maacher Bhorta-2.png","images/Chingri Maacher Bhorta-3.png"]},{"name":"Roshmalai","category":"Dessert","priority":"P0","images":["images/Roshmalai-0.png","images/Roshmalai-1.png","images/Roshmalai-2.png","images/Roshmalai-3.png","images/Roshmalai-4.png"]},{"name":"Mishti Doi","category":"Dessert","priority":"P1","images":["images/Mishti Doi-0.png","images/Mishti Doi-1.png"]},{"name":"Kalo Jam","category":"Dessert","priority":"P1","images":["images/Kalo Jam-0.png","images/Kalo Jam-1.png"]},{"name":"Pathishapta Pitha","category":"Dessert","priority":"P1","images":["images/Pathishapta Pitha-0.png"]},{"name":"Bhapa Pitha","category":"Dessert","priority":"P1","images":["images/Bhapa Pitha-0.png","images/Bhapa Pitha-1.png"]},{"name":"Shemai","category":"Dessert","priority":"P1","images":["images/Shemai-0.png"]},{"name":"Falooda","category":"Dessert","priority":"P2","images":["images/Falooda-0.png","images/Falooda-1.png","images/Falooda-2.png","images/Falooda-3.png","images/Falooda-4.png","images/Falooda-5.png","images/Falooda-6.png","images/Falooda-7.png","images/Falooda-8.png","images/Falooda-9.png","images/Falooda-10.png","images/Falooda-11.png","images/Falooda-12.png"]},{"name":"Jalebi","category":"Dessert","priority":"P2","images":["images/Jalebi-0.png","images/Jalebi-1.png"]},{"name":"Nokshi Pitha","category":"Dessert","priority":"P2","images":["images/Nokshi Pitha-0.png"]},{"name":"Shrimp Malai Curry","category":"Fish","priority":"P0","images":["images/Shrimp Malai Curry-0.png","images/Shrimp Malai Curry-1.png","images/Shrimp Malai Curry-2.png","images/Shrimp Malai Curry-3.png","images/Shrimp Malai Curry-4.png"]},{"name":"Mustard Fish (Rohu/Tilapia/Carp)","category":"Fish","priority":"P0","images":["images/Mustard Fish (Rohu_Tilapia_Carp)-0.png","images/Mustard Fish (Rohu_Tilapia_Carp)-1.png","images/Mustard Fish (Rohu_Tilapia_Carp)-2.png"]},{"name":"Puti Macher Jhol","category":"Fish","priority":"P2","images":["images/Puti Macher Jhol-0.png","images/Puti Macher Jhol-1.png"]},{"name":"Barista (Fried Onions)","category":"Foundations","priority":"P2","images":["images/Barista (Fried Onions)-0.png","images/Barista (Fried Onions)-1.png","images/Barista (Fried Onions)-2.png"]},{"name":"Panch Phoron","category":"Foundations","priority":"P2","images":["images/Panch Phoron-0.png","images/Panch Phoron-1.png"]},{"name":"Paya (Trotter Water)","category":"Meats","priority":"P0","images":["images/Paya (Trotter Water)-0.png","images/Paya (Trotter Water)-1.png","images/Paya (Trotter Water)-2.png","images/Paya (Trotter Water)-3.png","images/Paya (Trotter Water)-4.png","images/Paya (Trotter Water)-5.png","images/Paya (Trotter Water)-6.png","images/Paya (Trotter Water)-7.png","images/Paya (Trotter Water)-8.png"]},{"name":"Chicken Korma","category":"Meats","priority":"P0","images":["images/Chicken Korma-0.png","images/Chicken Korma-1.png","images/Chicken Korma-2.png","images/Chicken Korma-3.png","images/Chicken Korma-4.png","images/Chicken Korma-5.png"]},{"name":"Bhuna Mongsho (Beef Bhuna)","category":"Meats","priority":"P0","images":["images/Bhuna Mongsho (Beef Bhuna)-0.png","images/Bhuna Mongsho (Beef Bhuna)-1.png","images/Bhuna Mongsho (Beef Bhuna)-2.png","images/Bhuna Mongsho (Beef Bhuna)-3.png","images/Bhuna Mongsho (Beef Bhuna)-4.png","images/Bhuna Mongsho (Beef Bhuna)-5.png","images/Bhuna Mongsho (Beef Bhuna)-6.png"]},{"name":"Lamb Biryani (Kachi)","category":"Meats","priority":"P0","images":["images/Lamb Biryani (Kachi)-0.png","images/Lamb Biryani (Kachi)-1.png","images/Lamb Biryani (Kachi)-2.png","images/Lamb Biryani (Kachi)-3.png","images/Lamb Biryani (Kachi)-4.png","images/Lamb Biryani (Kachi)-5.png","images/Lamb Biryani (Kachi)-6.png","images/Lamb Biryani (Kachi)-7.png","images/Lamb Biryani (Kachi)-8.png","images/Lamb Biryani (Kachi)-9.png"]},{"name":"Tehari","category":"Meats","priority":"P1","images":["images/Tehari-0.png","images/Tehari-1.png","images/Tehari-2.png"]},{"name":"Chicken Lal Jhol","category":"Meats","priority":"P1","images":["images/Chicken Lal Jhol-0.png"]},{"name":"Shami Kabab","category":"Meats","priority":"P1","images":["images/Shami Kabab-0.png","images/Shami Kabab-1.png","images/Shami Kabab-2.png"]},{"name":"Bengali Omelette","category":"Meats","priority":"P1","images":["images/Bengali Omelette-0.png","images/Bengali Omelette-1.png"]},{"name":"Chicken Roast","category":"Meats","priority":"","images":["images/Chicken Roast-0.png","images/Chicken Roast-1.png","images/Chicken Roast-2.png","images/Chicken Roast-3.png","images/Chicken Roast-4.png"]},{"name":"Panta Bhat","category":"Rice and Bread","priority":"P0","images":["images/Panta Bhat-0.png","images/Panta Bhat-1.png"]},{"name":"Kitchery (Khichuri)","category":"Rice and Bread","priority":"P1","images":["images/Kitchery (Khichuri)-0.png","images/Kitchery (Khichuri)-1.png","images/Kitchery (Khichuri)-2.png","images/Kitchery (Khichuri)-3.png","images/Kitchery (Khichuri)-4.png","images/Kitchery (Khichuri)-5.png","images/Kitchery (Khichuri)-6.png","images/Kitchery (Khichuri)-7.png","images/Kitchery (Khichuri)-8.png"]},{"name":"Pulao","category":"Rice and Bread","priority":"P1","images":["images/Pulao-0.png","images/Pulao-1.png","images/Pulao-2.png","images/Pulao-3.png","images/Pulao-4.png","images/Pulao-5.png"]},{"name":"Chicken Biryani","category":"Rice and Bread","priority":"P1","images":["images/Chicken Biryani-0.png","images/Chicken Biryani-1.png","images/Chicken Biryani-2.png","images/Chicken Biryani-3.png","images/Chicken Biryani-4.png","images/Chicken Biryani-5.png","images/Chicken Biryani-6.png","images/Chicken Biryani-7.png","images/Chicken Biryani-8.png","images/Chicken Biryani-9.png","images/Chicken Biryani-10.png"]},{"name":"Mughlai Paratha","category":"Rice and Bread","priority":"P1","images":["images/Mughlai Paratha-0.png","images/Mughlai Paratha-1.png"]},{"name":"Roti","category":"Rice and Bread","priority":"P2","images":["images/Roti-0.png"]},{"name":"Chai","category":"Snacks","priority":"P0","images":["images/Chai-0.png","images/Chai-1.png","images/Chai-2.png","images/Chai-3.png","images/Chai-4.png","images/Chai-5.png","images/Chai-6.png","images/Chai-7.png","images/Chai-8.png","images/Chai-9.png","images/Chai-10.png","images/Chai-11.png","images/Chai-12.png"]},{"name":"Mango Achar","category":"Snacks","priority":"P1","images":["images/Mango Achar-0.png","images/Mango Achar-1.png","images/Mango Achar-2.png","images/Mango Achar-3.png","images/Mango Achar-4.png","images/Mango Achar-5.png","images/Mango Achar-6.png","images/Mango Achar-7.png"]},{"name":"Fuchka","category":"Snacks","priority":"P1","images":["images/Fuchka-0.png","images/Fuchka-1.png","images/Fuchka-2.png","images/Fuchka-3.png","images/Fuchka-4.png","images/Fuchka-5.png"]},{"name":"Mango Lassi","category":"Snacks","priority":"P1","images":["images/Mango Lassi-0.png","images/Mango Lassi-1.png","images/Mango Lassi-2.png","images/Mango Lassi-3.png"]},{"name":"Banana Bread Balls","category":"Snacks","priority":"P1","images":["images/Banana Bread Balls-0.png","images/Banana Bread Balls-1.png","images/Banana Bread Balls-2.png","images/Banana Bread Balls-3.png","images/Banana Bread Balls-4.png","images/Banana Bread Balls-5.png","images/Banana Bread Balls-6.png","images/Banana Bread Balls-7.png"]},{"name":"Halal Chicken Patty and Hot Dogs","category":"Snacks","priority":"P1","images":["images/Halal Chicken Patty and Hot Dogs-0.png","images/Halal Chicken Patty and Hot Dogs-1.png","images/Halal Chicken Patty and Hot Dogs-2.png","images/Halal Chicken Patty and Hot Dogs-3.png","images/Halal Chicken Patty and Hot Dogs-4.png","images/Halal Chicken Patty and Hot Dogs-5.png","images/Halal Chicken Patty and Hot Dogs-6.png","images/Halal Chicken Patty and Hot Dogs-7.png","images/Halal Chicken Patty and Hot Dogs-8.png","images/Halal Chicken Patty and Hot Dogs-9.png","images/Halal Chicken Patty and Hot Dogs-10.png","images/Halal Chicken Patty and Hot Dogs-11.png","images/Halal Chicken Patty and Hot Dogs-12.png","images/Halal Chicken Patty and Hot Dogs-13.png","images/Halal Chicken Patty and Hot Dogs-14.png"]},{"name":"Jhal Muri (Muri)","category":"Snacks","priority":"P2","images":["images/Jhal Muri (Muri)-0.png","images/Jhal Muri (Muri)-1.png","images/Jhal Muri (Muri)-2.png","images/Jhal Muri (Muri)-3.png","images/Jhal Muri (Muri)-4.png","images/Jhal Muri (Muri)-5.png","images/Jhal Muri (Muri)-6.png","images/Jhal Muri (Muri)-7.png","images/Jhal Muri (Muri)-8.png","images/Jhal Muri (Muri)-9.png"]},{"name":"Samosa","category":"Snacks","priority":"P2","images":["images/Samosa-0.png","images/Samosa-1.png","images/Samosa-2.png","images/Samosa-3.png","images/Samosa-4.png","images/Samosa-5.png","images/Samosa-6.png","images/Samosa-7.png"]},{"name":"Shorbut","category":"Snacks","priority":"P2","images":["images/Shorbut-0.png","images/Shorbut-1.png","images/Shorbut-2.png","images/Shorbut-3.png","images/Shorbut-4.png","images/Shorbut-5.png","images/Shorbut-6.png","images/Shorbut-7.jpg","images/Shorbut-8.png","images/Shorbut-9.png","images/Shorbut-10.png","images/Shorbut-11.png"]},{"name":"Borhani","category":"Snacks","priority":"P2","images":["images/Borhani-0.png","images/Borhani-1.png","images/Borhani-2.png","images/Borhani-3.png","images/Borhani-4.png","images/Borhani-5.png","images/Borhani-6.png","images/Borhani-7.png","images/Borhani-8.jpg","images/Borhani-9.png","images/Borhani-10.jpg","images/Borhani-11.png","images/Borhani-12.png"]},{"name":"Mango with Rice","category":"Snacks","priority":"P2","images":["images/Mango with Rice-0.png","images/Mango with Rice-1.png","images/Mango with Rice-2.png","images/Mango with Rice-3.png","images/Mango with Rice-4.png","images/Mango with Rice-5.png","images/Mango with Rice-6.png","images/Mango with Rice-7.png","images/Mango with Rice-8.png"]},{"name":"Funny Bean w/ Shrimp","category":"Vegetables","priority":"P1","images":["images/Funny Bean w_ Shrimp-0.png"]},{"name":"Long Squash (Lau)","category":"Vegetables","priority":"P1","images":["images/Long Squash (Lau)-0.png"]},{"name":"Tok Daal","category":"Vegetables","priority":"P1","images":["images/Tok Daal-0.png"]},{"name":"Tamarind Achar","category":"Vegetables","priority":"P1","images":["images/Tamarind Achar-0.png"]},{"name":"Chana Dal","category":"Vegetables","priority":"P1","images":["images/Chana Dal-0.png"]}]</script>
+<script id="recipe-data" type="application/json">[{"name":"Aloo Bhorta","category":"Bhortas","priority":"P1","images":[]},{"name":"Begun Bhorta","category":"Bhortas","priority":"P1","images":[]},{"name":"Peyaj Bhorta","category":"Bhortas","priority":"P1","images":[]},{"name":"Chingri Maacher Bhorta","category":"Bhortas","priority":"P1","images":[]},{"name":"Roshmalai","category":"Dessert","priority":"P0","images":[]},{"name":"Rice Pudding (Payesh)","category":"Dessert","priority":"P1","images":[]},{"name":"Mishti Doi","category":"Dessert","priority":"P1","images":[]},{"name":"Kalo Jam","category":"Dessert","priority":"P1","images":[]},{"name":"Pathishapta Pitha","category":"Dessert","priority":"P1","images":[]},{"name":"Bhapa Pitha","category":"Dessert","priority":"P1","images":[]},{"name":"Shemai","category":"Dessert","priority":"P1","images":[]},{"name":"Falooda","category":"Dessert","priority":"P2","images":[]},{"name":"Am Bhat","category":"Dessert","priority":"P2","images":[]},{"name":"Jalebi","category":"Dessert","priority":"P2","images":[]},{"name":"Nokshi Pitha","category":"Dessert","priority":"P2","images":[]},{"name":"Shrimp Malai Curry","category":"Fish","priority":"P0","images":[]},{"name":"Mustard Fish (Rohu/Tilapia/Carp)","category":"Fish","priority":"P0","images":[]},{"name":"Catfish Bhuna","category":"Fish","priority":"P1","images":[]},{"name":"Rui Macher Jhol","category":"Fish","priority":"P1","images":[]},{"name":"Shrimp Bhuna","category":"Fish","priority":"P1","images":[]},{"name":"Puti Macher Jhol","category":"Fish","priority":"P2","images":[]},{"name":"Pomfret Curry","category":"Fish","priority":"P2","images":[]},{"name":"Barista (Fried Onions)","category":"Foundations","priority":"P2","images":[]},{"name":"Panch Phoron","category":"Foundations","priority":"P2","images":[]},{"name":"Paya (Trotter Water)","category":"Meats","priority":"P0","images":[]},{"name":"Chicken Korma","category":"Meats","priority":"P0","images":[]},{"name":"Bhuna Mongsho (Beef Bhuna)","category":"Meats","priority":"P0","images":[]},{"name":"Lamb Biryani (Kachi)","category":"Meats","priority":"P0","images":[]},{"name":"Beef Korma","category":"Meats","priority":"P1","images":[]},{"name":"Tehari","category":"Meats","priority":"P1","images":[]},{"name":"Chicken Lal Jhol","category":"Meats","priority":"P1","images":[]},{"name":"Beef Johl","category":"Meats","priority":"P1","images":[]},{"name":"Shami Kabab","category":"Meats","priority":"P1","images":[]},{"name":"Bengali Omelette","category":"Meats","priority":"P1","images":[]},{"name":"Dim Bhuna (Egg Curry)","category":"Meats","priority":"P1","images":[]},{"name":"Biye Bari Roast","category":"Meats","priority":"P1","images":[]},{"name":"Duck Bhuna","category":"Meats","priority":"P2","images":[]},{"name":"Tandoori Chicken","category":"Meats","priority":"P2","images":[]},{"name":"Liver Curry","category":"Meats","priority":"P2","images":[]},{"name":"Chicken Roast","category":"Meats","priority":"","images":[]},{"name":"Panta Bhat","category":"Rice and Bread","priority":"P0","images":[]},{"name":"Kitchery (Khichuri)","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Pulao","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Chicken Biryani","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Mughlai Paratha","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Goat Biryani","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Goat Biryani","category":"Rice and Bread","priority":"P1","images":[]},{"name":"Roti","category":"Rice and Bread","priority":"P2","images":[]},{"name":"Chai","category":"Snacks","priority":"P0","images":[]},{"name":"Mango Achar","category":"Snacks","priority":"P1","images":[]},{"name":"Fuchka","category":"Snacks","priority":"P1","images":[]},{"name":"Mango Lassi","category":"Snacks","priority":"P1","images":[]},{"name":"Banana Bread Balls","category":"Snacks","priority":"P1","images":[]},{"name":"Halal Chicken Patty and Hot Dogs","category":"Snacks","priority":"P1","images":[]},{"name":"Jhal Muri (Muri)","category":"Snacks","priority":"P2","images":[]},{"name":"Samosa","category":"Snacks","priority":"P2","images":[]},{"name":"Shorbut","category":"Snacks","priority":"P2","images":[]},{"name":"Borhani","category":"Snacks","priority":"P2","images":[]},{"name":"Mango with Rice","category":"Snacks","priority":"P2","images":[]},{"name":"Fried Cauliflower","category":"Vegetables","priority":"P1","images":[]},{"name":"Funny Bean w/ Shrimp","category":"Vegetables","priority":"P1","images":[]},{"name":"Long Squash (Lau)","category":"Vegetables","priority":"P1","images":[]},{"name":"Tok Daal","category":"Vegetables","priority":"P1","images":[]},{"name":"Piaju","category":"Vegetables","priority":"P1","images":[]},{"name":"Fried Vegetable Peels","category":"Vegetables","priority":"P1","images":[]},{"name":"Beguni","category":"Vegetables","priority":"P1","images":[]},{"name":"Badhakopi Tarkari","category":"Vegetables","priority":"P1","images":[]},{"name":"Tamarind Achar","category":"Vegetables","priority":"P1","images":[]},{"name":"Moong Dal","category":"Vegetables","priority":"P1","images":[]},{"name":"Chana Dal","category":"Vegetables","priority":"P1","images":[]},{"name":"Cucumber Salad","category":"Vegetables","priority":"P2","images":[]}]</script>
 <div id="app"></div>
 <script type="module">
 import { h, render } from 'https://esm.sh/preact@10';
@@ -68,26 +61,16 @@ function toggle(set, val) {
   return s;
 }
 
-function Card({ recipe }) {
-  const shown = recipe.images.slice(0, 4);
-  const nc    = Math.min(shown.length, 4);
+function Recipe({ r }) {
+  const pc = PRIO_COLOR[r.priority];
   return html`
-    <div class="card">
-      <div class=${`imgs n${nc}`}>
-        ${shown.map(src => html`<img src=${src} loading="lazy" />`)}
+    <div class="recipe">
+      <div class="recipe-header">
+        <span class="recipe-name">${r.name}</span>
+        ${pc && html`<span class="prio" style=${{ background: pc }}>${r.priority}</span>`}
+        ${r.category && html`<span class="cat">${r.category}</span>`}
       </div>
-      <div class="card-body">
-        <div class="card-name">${recipe.name}</div>
-        <div class="card-meta">
-          ${recipe.priority && html`
-            <span class="prio-badge"
-              style=${'background:' + (PRIO_COLOR[recipe.priority] ?? '#bbb')}>
-              ${recipe.priority}
-            </span>
-          `}
-          ${recipe.category && html`<span class="cat-tag">${recipe.category}</span>`}
-        </div>
-      </div>
+      ${r.images && r.images.map(src => html`<img src=${src} loading="lazy" />`)}
     </div>
   `;
 }
@@ -102,50 +85,31 @@ function App() {
       (prios.size === 0 || prios.has(r.priority))
     ), [cats, prios]);
 
-  const groups = useMemo(() => {
-    const g = {};
-    for (const r of filtered) {
-      const c = r.category || 'Other';
-      if (!g[c]) g[c] = [];
-      g[c].push(r);
-    }
-    return g;
-  }, [filtered]);
-
-  const entries = Object.entries(groups);
-
   return html`
     <header>
       <h1>🍽️ Cooking with Nur</h1>
       <p class="subtitle">Updated ${PUB_DATE} · ${RECIPES.length} recipes</p>
       <div class="filters">
         ${ALL_PRIOS.map(p => html`
-          <button
-            class=${'chip' + (prios.has(p) ? ' on' : '')}
-            onClick=${() => setPrios(s => toggle(s, p))}
-          >
-            <span class="chip-dot" style=${'background:' + (PRIO_COLOR[p] ?? '#bbb')} />
+          <button class=${'chip' + (prios.has(p) ? ' on' : '')}
+            onClick=${() => setPrios(s => toggle(s, p))}>
+            <span class="chip-dot" style=${{ background: PRIO_COLOR[p] ?? '#bbb' }} />
             ${p}
           </button>
         `)}
         ${ALL_CATS.map(c => html`
-          <button
-            class=${'chip' + (cats.has(c) ? ' on' : '')}
-            onClick=${() => setCats(s => toggle(s, c))}
-          >${c}</button>
+          <button class=${'chip' + (cats.has(c) ? ' on' : '')}
+            onClick=${() => setCats(s => toggle(s, c))}>
+            ${c}
+          </button>
         `)}
       </div>
     </header>
     <main>
       <div class="count-bar">${filtered.length} of ${RECIPES.length} shown</div>
-      ${entries.length === 0
+      ${filtered.length === 0
         ? html`<div class="empty">No recipes match the selected filters.</div>`
-        : entries.map(([cat, items]) => html`
-            <div class="cat-header">${cat}</div>
-            <div class="grid">
-              ${items.map(r => html`<${Card} recipe=${r} />`)}
-            </div>
-          `)
+        : filtered.map(r => html`<${Recipe} key=${r.name} r=${r} />`)
       }
     </main>
   `;
